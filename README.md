@@ -210,6 +210,6 @@ AI assistants like this are transforming insurance by:
 
 ## 👨‍💻 Author
 
-Deepak Singh
-Senior Lead Developer | AI & Cloud Enthusiast
+#### Deepak Singh
+#### Senior Lead Developer | AI & Cloud Enthusiast
 
