@@ -33,4 +33,9 @@ build/
 .vscode/
 
 .DS_Store
-test.md
+
+
+__pycache__/
+.env
+*.pyc
+data/vector_db/
