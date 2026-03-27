@@ -201,9 +201,8 @@ AI assistants like this are transforming insurance by:
 
 ## 🔮 Future Enhancements
 
-* 🔹 Voice-based assistant
-* 🔹 Fine-tuned domain-specific models
-* 🔹 Real-time policy updates
+* 🔹 Implements BM25-based keyword search to complement semantic (vector) retrieval.
+* 🔹 Real-time policy updates - SQL + API integration
 * 🔹 Integration with AWS Bedrock
 * 🔹 Personalized recommendations
 
