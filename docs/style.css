@@ -32,3 +32,8 @@ img {
     display: block;
     margin: auto;
 }
+a:link, a:visited, a:hover, a:active {
+    color: white;
+    /* Optional: removes the default underline */
+    text-decoration: underline; 
+  }
