@@ -38,4 +38,3 @@ build/
 __pycache__/
 .env
 *.pyc
-data/vector_db/
