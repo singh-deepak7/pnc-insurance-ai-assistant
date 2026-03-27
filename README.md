@@ -75,21 +75,35 @@ pnc-insurance-ai-assistant/
 │   └── vector_store.py          # FAISS storage
 │
 ├── agents/
-│   ├── planner.py
-│   ├── researcher.py
-│   ├── synthesizer.py
-│   └── orchestrator.py
+│   ├── planner.py # Break Query (LLM)
+│   ├── researcher.py # Retrieve docs ( FAISS + embeddings)
+│   ├── synthesizer.py # Generate answer (LLM)
+│   └── orchestrator.py # Control flow (python)
 │
 ├── search/
-│   ├── bm25.py
-│   └── hybrid_search.py
+│   ├── bm25.py (Future state)
+│   └── hybrid_search.py (Future state)
 │
-├── app/
-│   └── main.py                  # Entry point (UI/API)
+├── backens/app
+│   └── main.py                  # Entry point (API)
+|   └── routes/ 
+|       └── query.py
+|   └── services/ 
+|       └── rag_service.py
+|   └── frontend/ 
+|       └── app.py # Entry point (UI)
 │
 ├── data/
-│   └── policies/                # Insurance PDFs
+│   └── raw/                # Insurance PDFs
 │
+|── rag_pipleine/
+|   └── cost_tracker.py
+|   └── hybrid_search.py
+|   └── ingest.py   
+|   └── vectore_store.py
+|
+|── run.sh
+|
 ├── requirements.txt
 └── README.md
 ```
