@@ -68,41 +68,31 @@ Final Response
 ```
 pnc-insurance-ai-assistant/
 │
-├── ingestion/
-│   ├── document_loader.py        # Load PDFs
-│   ├── text_splitter.py         # Chunk documents
-│   ├── embedding.py             # Generate embeddings
-│   └── vector_store.py          # FAISS storage
+|── rag_pipleine/
+|   └── cost_tracker.py       # Estimates token usage and embedding cost before running the embedding process.
+|   └── hybrid_search.py      # Implements BM25-based keyword search to complement semantic (vector) retrieval. (TODO)
+|   └── ingest.py             # End-to-end pipeline that loads PDFs, cleans/chunks data, creates embeddings, and builds the FAISS + BM25 indexes.
+|   └── vectore_store.py      # Loads the saved FAISS vector database for use during query-time retrieval.
 │
 ├── agents/
-│   ├── planner.py # Break Query (LLM)
-│   ├── researcher.py # Retrieve docs ( FAISS + embeddings)
-│   ├── synthesizer.py # Generate answer (LLM)
-│   └── orchestrator.py # Control flow (python)
+│   ├── planner.py            # Break Query (LLM)
+│   ├── researcher.py         # Retrieve docs ( FAISS + embeddings)
+│   ├── synthesizer.py        # Generate answer (LLM)
+│   └── orchestrator.py       # Control flow (python)
 │
-├── search/
-│   ├── bm25.py (Future state)
-│   └── hybrid_search.py (Future state)
-│
-├── backens/app
-│   └── main.py                  # Entry point (API)
+├── backend/app
+│   └── main.py               # Initializes the FastAPI server and registers API routes.
 |   └── routes/ 
-|       └── query.py
+|       └── query.py          # Defines the /query API endpoint and formats the response returned to the client.
 |   └── services/ 
-|       └── rag_service.py
+|       └── rag_service.py    # Core service that handles query processing using RAG and multi-agent orchestration.
 |   └── frontend/ 
-|       └── app.py # Entry point (UI)
+|       └── app.py # UI
 │
 ├── data/
-│   └── raw/                # Insurance PDFs
-│
-|── rag_pipleine/
-|   └── cost_tracker.py
-|   └── hybrid_search.py
-|   └── ingest.py   
-|   └── vectore_store.py
+│   └── raw/                  # Insurance PDFs
 |
-|── run.sh
+|── run.sh # script to run the app locally 
 |
 ├── requirements.txt
 └── README.md
