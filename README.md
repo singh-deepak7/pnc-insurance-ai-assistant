@@ -86,9 +86,10 @@ pnc-insurance-ai-assistant/
 |       └── query.py          # Defines the /query API endpoint and formats the response returned to the client.
 |   └── services/ 
 |       └── rag_service.py    # Core service that handles query processing using RAG and multi-agent orchestration.
-|   └── frontend/ 
+|
+|── frontend/ 
 |       └── app.py # UI
-│
+|
 ├── data/
 │   └── raw/                  # Insurance PDFs
 |
