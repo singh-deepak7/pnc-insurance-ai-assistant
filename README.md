@@ -88,7 +88,7 @@ pnc-insurance-ai-assistant/
 |       └── rag_service.py    # Core service that handles query processing using RAG and multi-agent orchestration.
 |
 |── frontend/ 
-|       └── app.py # UI
+|       └── app.py # Gradio-based interactive UI that sends user queries to the backend API and streams responses with sources, trace, and confidence
 |
 ├── data/
 │   └── raw/                  # Insurance PDFs
