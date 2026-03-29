@@ -1,6 +1,8 @@
 from agents.planner import plan
 from agents.researcher import research
 from agents.synthesizer import synthesize
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 
 
 def run_multi_agent(query: str):
@@ -19,15 +21,21 @@ def run_multi_agent(query: str):
     confidences = []
 
     # Research
-    for step in steps:
-        print(f"🔍 Researching: {step}")
-        trace.append(f"🔍 Researcher: {step}")
+    with ThreadPoolExecutor(max_workers=len(steps)) as executor:
+        future_to_step = {
+            executor.submit(research, step): step for step in steps
+        }
 
-        result = research(step)
+        for future in as_completed(future_to_step):
+            step = future_to_step[future]
+            print(f"🔍 Researching (parallel): {step}")
+            trace.append(f"🔍 Researcher: {step}")
 
-        results.append(result["answer"])
-        all_sources.update(result["sources"])
-        confidences.append(result["confidence"])
+            result = future.result()
+
+            results.append(result["answer"])
+            all_sources.update(result["sources"])
+            confidences.append(result["confidence"])
 
     # Synthesis
     print("🧩 Synthesizing final answer...")
