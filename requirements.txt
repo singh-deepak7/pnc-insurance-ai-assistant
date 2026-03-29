@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+langchain
+faiss-cpu
+pypdf
+gradio
+requests
+python-dotenv
+langchain-community 
+langchain-core
+langchain-text-splitters
+
+cryptography
+pymupdf
+rank-bm25
+langchain-ollama
+langchain-openai

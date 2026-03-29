@@ -176,6 +176,8 @@ python -m rag_pipeline.ingest
 bash run.sh  
 ```
 
+### ⚠️ make sure Ollama server is up and `llama3.2:3b` model is avaiblable
+
 ---
 
 ## 🧪 Example Queries
@@ -184,7 +186,6 @@ bash run.sh
 * "What does auto insurance cover?"
 * “Explain deductible in simple terms”
 * “Compare liability vs comprehensive insurance”
-* “What is not covered in this policy?”
 
 ---
 
